@@ -1,10 +1,11 @@
 import sqlite3
 
 import torch
-from model import NOTE_QUERY, Note
 from TTS.api import TTS
 
-conn = sqlite3.connect("./collection.anki2")
+from model import NOTE_QUERY, Note
+
+conn = sqlite3.connect("./anki_dir/collection.anki2")
 cursor = conn.cursor()
 
 
@@ -24,5 +25,5 @@ for num, note in enumerate(notes):
         speaker="Filip Traverse",
         language="de",
         file_path=f"./audio/{note.note_id}.wav",
-        split_sentences=False
+        split_sentences=False,
     )

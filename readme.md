@@ -11,6 +11,10 @@ Generate audio
 - Copy collection.anki2 into the directory
 - `python generate_audio.py`
 
+```shell
+ln -s path-to-anki-directory anki_dir
+# directory is something like Library/Application Support/Anki2/User 1 on mac
+```
 
 Output to mp3
 ```shell

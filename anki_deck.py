@@ -2,7 +2,7 @@ import sqlite3
 
 from model import NOTE_QUERY, Note
 
-conn = sqlite3.connect("./collection.anki2")
+conn = sqlite3.connect("./anki_dir/collection.anki2")
 cursor = conn.cursor()
 
 update = """
@@ -17,8 +17,8 @@ notes = [Note(*row) for row in cursor.fetchall()]
 
 for note in notes:
     fields = note.note_fields
-    note_data = fields.split('\x1f')
-    note_data[-1] = f'[sound:{note.note_id}.mp3]'
+    note_data = fields.split("\x1f")
+    note_data[-1] = f"[sound:{note.note_id}.mp3]"
     note.note_fields = "\x1f".join(note_data)
     # # We make the update to the deck itself.
     cursor.execute(update, (note.note_fields, note.note_id))
