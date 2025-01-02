@@ -2,3 +2,4 @@ collection.anki2
 venv
 *.wav
 *.mp3
+anki_dir
